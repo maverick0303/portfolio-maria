@@ -51,8 +51,9 @@ export default function Hero() {
                         transition={{ duration: 0.7, delay: 0.4 }}
                         className="flex gap-4 mt-8"
                     >
-
-                        <button className="
+                        <a
+                            href="#portafolio"
+                            className="
 flex 
 items-center 
 gap-2 
@@ -65,13 +66,16 @@ font-medium
 hover:scale-105 
 transition
 shadow-md
-">
+"
+                        >
                             Ver proyectos
                             <ArrowRight size={18} />
-                        </button>
+                        </a>
 
 
-                        <button className="
+                        <a
+                            id="contacto"
+                            className="
 px-6 
 py-3 
 rounded-full 
@@ -81,16 +85,43 @@ text-[#097C89]
 hover:bg-[#097C89]
 hover:text-white
 transition
-">
+"
+                        >
                             Contactarme
-                        </button>
+                        </a>
 
                     </motion.div>
 
 
                     <div className="flex gap-4 mt-8">
-                        <Code />
-                        <UserRound />
+
+                        <div
+                            className="
+        p-3
+        rounded-2xl
+        bg-[#F0F0F2]
+        "
+                        >
+                            <Code
+                                className="text-[#F2529D]"
+                                size={24}
+                            />
+                        </div>
+
+
+                        <div
+                            className="
+        p-3
+        rounded-2xl
+        bg-[#F0F0F2]
+        "
+                        >
+                            <UserRound
+                                className="text-[#097C89]"
+                                size={24}
+                            />
+                        </div>
+
                     </div>
 
                 </div>

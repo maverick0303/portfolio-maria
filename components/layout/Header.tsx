@@ -1,74 +1,147 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { navigationLinks } from "@/constants/navigation";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { navigation } from "@/constants/navigation";
 
-export default function Header() {
+
+export default function Header(){
+
+  const [open,setOpen] = useState(false);
+
+
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+
+    <header
       className="
         fixed
         top-0
-        left-0
         w-full
         z-50
-        px-6
-        py-5
+        bg-[#F0F0F2]/80
+        backdrop-blur-md
       "
     >
+
       <nav
         className="
           max-w-6xl
           mx-auto
-          flex
-          items-center
-          justify-between
-          rounded-full
           px-6
-          py-3
-          bg-white/80
-          backdrop-blur-md
-          shadow-sm
+          py-5
+          flex
+          justify-between
+          items-center
         "
       >
 
         {/* Logo */}
+
         <a
           href="#inicio"
           className="
+            text-2xl
             font-bold
-            text-xl
             text-[#401F34]
           "
         >
-          María<span className="text-[#F2529D]">.</span>
+          María.
         </a>
 
 
-        {/* Navegación */}
-        <div className="hidden md:flex gap-8">
 
-          {navigationLinks.map((item) => (
+        {/* Desktop */}
+
+        <div
+          className="
+            hidden
+            md:flex
+            gap-8
+          "
+        >
+
+          {navigation.map((item)=>(
+
             <a
-              key={item.href}
+              key={item.name}
               href={item.href}
               className="
-                text-sm
                 text-[#401F34]
                 hover:text-[#F2529D]
                 transition
               "
             >
-              {item.label}
+              {item.name}
             </a>
+
           ))}
 
         </div>
 
+
+
+        {/* Mobile button */}
+
+        <button
+          className="
+            md:hidden
+            text-[#401F34]
+          "
+          onClick={()=>setOpen(!open)}
+        >
+
+          {
+            open
+            ? <X />
+            : <Menu />
+          }
+
+        </button>
+
+
       </nav>
-    </motion.header>
+
+
+
+      {/* Mobile menu */}
+
+      {
+        open && (
+
+          <div
+            className="
+              md:hidden
+              px-6
+              pb-6
+              flex
+              flex-col
+              gap-4
+              bg-white
+            "
+          >
+
+            {navigation.map((item)=>(
+
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={()=>setOpen(false)}
+                className="
+                  text-[#401F34]
+                "
+              >
+                {item.name}
+              </a>
+
+            ))}
+
+          </div>
+
+        )
+      }
+
+
+    </header>
+
   );
 }

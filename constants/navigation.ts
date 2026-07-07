@@ -1,22 +1,22 @@
-export const navigationLinks = [
+export const navigation = [
   {
-    label: "Inicio",
+    name: "Inicio",
     href: "#inicio",
   },
   {
-    label: "Servicios",
+    name: "Servicios",
     href: "#servicios",
   },
   {
-    label: "Sobre mí",
+    name: "Sobre mí",
     href: "#sobre-mi",
   },
   {
-    label: "Portafolio",
+    name: "Portafolio",
     href: "#portafolio",
   },
   {
-    label: "Contacto",
+    name: "Contacto",
     href: "#contacto",
   },
 ];
