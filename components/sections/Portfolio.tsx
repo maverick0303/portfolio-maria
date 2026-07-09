@@ -9,7 +9,7 @@ const projects = [
     title: "Tiendita de Música",
     description:
       "Plataforma ecommerce para venta de productos musicales con catálogo, carrito de compras y gestión de productos.",
-    image: "/images/tiendita.jpg",
+    image: "/images/Tiendita.jpg",
     technologies: [
       "React",
       "TypeScript",
