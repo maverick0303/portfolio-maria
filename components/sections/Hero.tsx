@@ -74,18 +74,18 @@ shadow-md
 
 
                         <a
-                            id="contacto"
+                            href="#contacto"
                             className="
-px-6 
-py-3 
-rounded-full 
-border 
-border-[#097C89]
-text-[#097C89]
-hover:bg-[#097C89]
-hover:text-white
-transition
-"
+        px-6
+        py-3
+        rounded-full
+        border
+        border-[#097C89]
+        text-[#097C89]
+        hover:bg-[#097C89]
+        hover:text-white
+        transition
+    "
                         >
                             Contactarme
                         </a>
