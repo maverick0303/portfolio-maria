@@ -5,10 +5,10 @@ import About from "@/components/sections/About";
 import Portfolio from "@/components/sections/Portfolio";
 import Skills from "@/components/sections/Skills";
 import CTA from "@/components/sections/CTA";
+import Footer from "@/components/layout/Footer";
+
 export default function Home() {
-
   return (
-
     <>
       <Header />
 
@@ -21,7 +21,7 @@ export default function Home() {
         <CTA />
       </main>
 
+      <Footer />
     </>
-
   );
 }

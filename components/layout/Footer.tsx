@@ -1,164 +1,121 @@
 "use client";
 
 import { Mail } from "lucide-react";
-import {
-  FaGithub,
-  FaLinkedin,
-} from "react-icons/fa";
-
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
-
-    return (
-
-        <footer
-            className="
-        bg-[#401F34]
-        text-white
-        px-6
-        py-12
-      "
-        >
-
-            <div
-                className="
-          max-w-6xl
-          mx-auto
-          flex
-          flex-col
-          md:flex-row
-          justify-between
-          gap-8
-        "
+  return (
+    <footer className="bg-[#F0F0F2] text-[#401F34] px-6 py-14">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-10">
+        {/* Marca */}
+        <div>
+          <div className="flex items-baseline gap-1">
+            <span
+              className="text-2xl font-bold text-[#401F34]"
+              style={{ fontFamily: "var(--font-space-grotesk)" }}
             >
+              María
+            </span>
+            <span
+              className="text-2xl text-[#F2529D]"
+              style={{ fontFamily: "var(--font-caveat)" }}
+            >
+              .dev
+            </span>
+          </div>
 
+          <p className="mt-3 text-[#401F34]/60 max-w-sm">
+            Frontend Developer enfocada en crear experiencias digitales con
+            diseño y tecnología.
+          </p>
+        </div>
 
-                {/* Marca */}
-                <div>
+        {/* Contacto */}
+        <div>
+          <h3
+            className="font-semibold mb-4 text-[#401F34]"
+            style={{ fontFamily: "var(--font-space-grotesk)" }}
+          >
+            Contacto
+          </h3>
 
-                    <h2
-                        className="
-              text-2xl
-              font-bold
-            "
-                    >
-                        María Yeguez
-                    </h2>
-
-
-                    <p
-                        className="
-              mt-3
-              text-white/70
-              max-w-sm
-            "
-                    >
-                        Frontend Developer enfocada en crear
-                        experiencias digitales con diseño y tecnología.
-                    </p>
-
-                </div>
-
-
-
-                {/* Contacto */}
-                <div>
-
-                    <h3
-                        className="
-              font-semibold
-              mb-4
-            "
-                    >
-                        Contacto
-                    </h3>
-
-
-                    <div
-                        className="
+          <div className="flex items-center gap-3">
+            <a
+              href="mailto:correo@email.com"
+              aria-label="Correo"
+              className="
+              w-11
+              h-11
+              rounded-full
+              bg-white
+              border
+              border-[#C9EBF2]
               flex
-              flex-col
-              gap-3
-            "
-                    >
-
-                        <a
-                            href="mailto:correo@email.com"
-                            className="
-                flex
-                items-center
-                gap-2
-                text-white/80
-                hover:text-[#F2529D]
-                transition
+              items-center
+              justify-center
+              text-[#401F34]
+              hover:bg-[#F2529D]
+              hover:text-white
+              hover:border-[#F2529D]
+              transition
               "
-                        >
-                            <Mail size={18} />
-                            correo@email.com
-                        </a>
-
-
-                        <a
-                            href="#"
-                            className="
-                flex
-                items-center
-                gap-2
-                text-white/80
-                hover:text-[#04D9D9]
-                transition
-              "
-                        >
-                            <FaGithub size={18}/>
-                            GitHub
-                        </a>
-
-
-                        <a
-                            href="#"
-                            className="
-                flex
-                items-center
-                gap-2
-                text-white/80
-                hover:text-[#04D9D9]
-                transition
-              "
-                        >
-                            <FaLinkedin size={18}/>
-                            LinkedIn
-                        </a>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <div
-                className="
-          max-w-6xl
-          mx-auto
-          mt-10
-          pt-6
-          border-t
-          border-white/20
-          text-sm
-          text-white/60
-        "
             >
+              <Mail size={18} />
+            </a>
 
-                © {new Date().getFullYear()} María Yeguez.
-                Todos los derechos reservados.
+            <a
+              href="#"
+              aria-label="GitHub"
+              className="
+              w-11
+              h-11
+              rounded-full
+              bg-white
+              border
+              border-[#C9EBF2]
+              flex
+              items-center
+              justify-center
+              text-[#401F34]
+              hover:bg-[#401F34]
+              hover:text-white
+              hover:border-[#401F34]
+              transition
+              "
+            >
+              <FaGithub size={18} />
+            </a>
 
-            </div>
+            <a
+              href="#"
+              aria-label="LinkedIn"
+              className="
+              w-11
+              h-11
+              rounded-full
+              bg-white
+              border
+              border-[#C9EBF2]
+              flex
+              items-center
+              justify-center
+              text-[#401F34]
+              hover:bg-[#04D9D9]
+              hover:text-white
+              hover:border-[#04D9D9]
+              transition
+              "
+            >
+              <FaLinkedin size={18} />
+            </a>
+          </div>
+        </div>
+      </div>
 
-
-        </footer>
-
-    );
+      <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-[#401F34]/10 text-sm text-[#401F34]/50">
+        © {new Date().getFullYear()} María Yeguez. Todos los derechos
+        reservados.
+      </div>
+    </footer>
+  );
 }
