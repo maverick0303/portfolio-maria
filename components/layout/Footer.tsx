@@ -41,7 +41,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-3">
             <a
-              href="mailto:correo@email.com"
+              href="mailto:mariayeguez.dev@gmail.com"
               aria-label="Correo"
               className="
               w-11
@@ -63,6 +63,7 @@ export default function Footer() {
               <Mail size={18} />
             </a>
 
+            {/* TODO: reemplazar cuando tengas tu repo/perfil de GitHub listo */}
             <a
               href="#"
               aria-label="GitHub"
@@ -87,7 +88,9 @@ export default function Footer() {
             </a>
 
             <a
-              href="#"
+              href="https://www.linkedin.com/in/mariavyeguez/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="LinkedIn"
               className="
               w-11

@@ -1,9 +1,46 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Sparkles } from "lucide-react";
+import { ArrowRight, Mail, Sparkles, Loader2, Check } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function CTA() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle"
+  );
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
+      );
+
+      setStatus("sent");
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error enviando el mensaje:", error);
+      setStatus("error");
+    }
+  };
+
   return (
     <section id="contacto" className="py-24 px-6 bg-white">
       <div className="max-w-5xl mx-auto">
@@ -17,105 +54,236 @@ export default function CTA() {
           rounded-[3rem]
           bg-[#401F34]
           px-6
-          py-16
-          md:px-16
-          md:py-20
-          text-center
+          py-14
+          md:px-14
+          md:py-16
           overflow-hidden
           "
         >
-          {/* Blobs decorativos dentro de la tarjeta */}
+          {/* Blobs decorativos */}
           <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-[#F2529D]/20 blur-3xl" />
           <div className="absolute -bottom-20 -right-20 w-72 h-72 rounded-full bg-[#04D9D9]/20 blur-3xl" />
 
-          {/* Badge circular giratorio (cierre del Hero) */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-            className="hidden md:block absolute top-8 right-10 w-24 h-24"
-          >
-            <svg viewBox="0 0 112 112" className="w-full h-full">
-              <circle cx="56" cy="56" r="55" fill="#ffffff" />
-              <path
-                id="ctaBadgeCircle"
-                d="M 56,56 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0"
-                fill="none"
-              />
-              <text fontSize="9" fill="#401F34" letterSpacing="1.5">
-                <textPath href="#ctaBadgeCircle" startOffset="0%">
-                  HABLEMOS • CREEMOS • HABLEMOS • CREEMOS •
-                </textPath>
-              </text>
-            </svg>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Sparkles className="text-[#F2529D]" size={20} />
+
+          <div className="relative grid md:grid-cols-2 gap-12 items-center">
+            {/* Texto */}
+            <div>
+              <p
+                className="
+                inline-flex
+                items-center
+                gap-2
+                uppercase
+                tracking-[0.25em]
+                text-xs
+                font-semibold
+                text-[#04D9D9]
+                bg-white/10
+                border
+                border-white/20
+                rounded-full
+                px-4
+                py-2
+                "
+              >
+                Contacto
+              </p>
+
+              <h2
+                className="mt-6 text-white"
+                style={{ fontFamily: "var(--font-space-grotesk)" }}
+              >
+                <span className="block text-4xl md:text-5xl font-bold">
+                  Vamos a trabajar
+                </span>
+                <span
+                  className="block text-5xl md:text-6xl text-[#F29BC4] mt-1 -rotate-1 origin-left"
+                  style={{ fontFamily: "var(--font-caveat)" }}
+                >
+                  juntos
+                </span>
+              </h2>
+
+              <p className="mt-6 text-white/70 leading-relaxed max-w-md">
+                Tengo interés en crear experiencias digitales donde el
+                diseño, la tecnología y la creatividad trabajen juntos.
+                Escríbeme por el formulario o directo a mi correo.
+              </p>
+
+              <a
+                href="mailto:mariayeguez.dev@gmail.com"
+                className="
+                inline-flex
+                items-center
+                gap-2
+                mt-8
+                text-sm
+                font-semibold
+                text-[#04D9D9]
+                hover:text-[#F29BC4]
+                transition
+                "
+              >
+                <Mail size={16} />
+                mariayeguez.dev@gmail.com
+                <ArrowRight size={14} />
+              </a>
             </div>
-          </motion.div>
 
-          <p
-            className="
-            relative
-            inline-flex
-            items-center
-            gap-2
-            uppercase
-            tracking-[0.25em]
-            text-xs
-            font-semibold
-            text-[#04D9D9]
-            bg-white/10
-            border
-            border-white/20
-            rounded-full
-            px-4
-            py-2
-            "
-          >
-            Contacto
-          </p>
-
-          <h2
-            className="relative mt-6 text-white"
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
-          >
-            <span className="block text-4xl md:text-6xl font-bold">
-              Vamos a trabajar
-            </span>
-            <span
-              className="block text-5xl md:text-7xl text-[#F29BC4] mt-1 -rotate-1 origin-center"
-              style={{ fontFamily: "var(--font-caveat)" }}
-            >
-              juntos
-            </span>
-          </h2>
-
-          <p className="relative mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-            Tengo interés en crear experiencias digitales donde el diseño, la
-            tecnología y la creatividad trabajen juntos.
-          </p>
-
-          <div className="relative mt-10 flex flex-wrap justify-center gap-4">
-            <a
-              href="mailto:tu-correo@gmail.com"
+            {/* Formulario */}
+            <form
+              onSubmit={handleSubmit}
               className="
-              inline-flex
-              items-center
-              gap-2
-              px-8
-              py-4
-              rounded-full
-              bg-[#F2529D]
-              text-white
-              font-semibold
-              hover:scale-105
-              transition
-              shadow-lg
+              bg-white/5
+              border
+              border-white/15
+              rounded-3xl
+              p-6
+              md:p-8
+              backdrop-blur-sm
+              space-y-4
               "
             >
-              <Mail size={18} />
-              Escríbeme
-              <ArrowRight size={18} />
-            </a>
+              <div>
+                <label className="text-xs font-medium text-white/60 uppercase tracking-wide">
+                  Nombre
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={form.name}
+                  onChange={handleChange}
+                  placeholder="Tu nombre"
+                  className="
+                  mt-1.5
+                  w-full
+                  rounded-xl
+                  bg-white/10
+                  border
+                  border-white/15
+                  px-4
+                  py-3
+                  text-white
+                  placeholder-white/40
+                  outline-none
+                  focus:border-[#F2529D]
+                  transition
+                  "
+                />
+              </div>
+
+              <div>
+                <label className="text-xs font-medium text-white/60 uppercase tracking-wide">
+                  Correo
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="tu@correo.com"
+                  className="
+                  mt-1.5
+                  w-full
+                  rounded-xl
+                  bg-white/10
+                  border
+                  border-white/15
+                  px-4
+                  py-3
+                  text-white
+                  placeholder-white/40
+                  outline-none
+                  focus:border-[#F2529D]
+                  transition
+                  "
+                />
+              </div>
+
+              <div>
+                <label className="text-xs font-medium text-white/60 uppercase tracking-wide">
+                  Mensaje
+                </label>
+                <textarea
+                  name="message"
+                  required
+                  rows={4}
+                  value={form.message}
+                  onChange={handleChange}
+                  placeholder="Cuéntame sobre tu proyecto..."
+                  className="
+                  mt-1.5
+                  w-full
+                  rounded-xl
+                  bg-white/10
+                  border
+                  border-white/15
+                  px-4
+                  py-3
+                  text-white
+                  placeholder-white/40
+                  outline-none
+                  focus:border-[#F2529D]
+                  transition
+                  resize-none
+                  "
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="
+                w-full
+                inline-flex
+                items-center
+                justify-center
+                gap-2
+                rounded-full
+                bg-[#F2529D]
+                text-white
+                font-semibold
+                py-3.5
+                hover:scale-[1.02]
+                transition
+                disabled:opacity-60
+                disabled:hover:scale-100
+                "
+              >
+                {status === "sending" && (
+                  <>
+                    <Loader2 size={18} className="animate-spin" />
+                    Enviando...
+                  </>
+                )}
+                {status === "sent" && (
+                  <>
+                    <Check size={18} />
+                    ¡Enviado!
+                  </>
+                )}
+                {(status === "idle" || status === "error") && (
+                  <>
+                    Enviar mensaje
+                    <ArrowRight size={18} />
+                  </>
+                )}
+              </button>
+
+              {status === "sent" && (
+                <p className="text-center text-sm text-[#04D9D9]">
+                  Gracias por escribir, te responderé pronto 💌
+                </p>
+              )}
+
+              {status === "error" && (
+                <p className="text-center text-sm text-[#F29BC4]">
+                  Algo falló. Prueba escribirme directo al correo.
+                </p>
+              )}
+            </form>
           </div>
         </motion.div>
       </div>

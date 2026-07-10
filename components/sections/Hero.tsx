@@ -197,22 +197,12 @@ export default function Hero() {
             shadow-2xl
             "
           >
-            <div
-              className="
-              w-full
-              h-full
-              rounded-[2.5rem]
-              bg-[#F0F0F2]
-              flex
-              items-center
-              justify-center
-              text-center
-              text-[#401F34]/60
-              font-semibold
-              px-8
-              "
-            >
-              Tu foto aquí ✨
+            <div className="w-full h-full rounded-[2.5rem] overflow-hidden">
+              <img
+                src="/images/yo1.png"
+                alt="María Yeguez"
+                className="w-full h-full object-[center_5%] object-cover scale-135"
+              />
             </div>
           </div>
 

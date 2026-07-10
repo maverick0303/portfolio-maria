@@ -61,21 +61,12 @@ export default function About() {
             to-[#097C89]
             "
           >
-            <div
-              className="
-              w-full
-              h-full
-              rounded-[2.5rem]
-              bg-[#F0F0F2]
-              flex
-              items-center
-              justify-center
-              text-center
-              text-[#401F34]/60
-              font-semibold
-              "
-            >
-              Tu imagen aquí ✨
+            <div className="w-full h-full rounded-[2.5rem] overflow-hidden">
+              <img
+                src="/images/yo2.png"
+                alt="María Yeguez"
+                className="w-full h-full object-cover object-[center_15%]"
+              />
             </div>
           </div>
 
