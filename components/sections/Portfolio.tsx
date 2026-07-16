@@ -12,6 +12,8 @@ const projects = [
     image: "/images/Tiendita.jpg",
     technologies: ["React", "TypeScript", "SQLite", "Ionic"],
     color: "#F2529D",
+    slug: "tiendita-de-musica", // NUEVO
+
   },
   {
     title: "Aplicación móvil de ventas",
@@ -21,6 +23,8 @@ const projects = [
     image: "/images/timetech.jpg",
     technologies: ["Angular", "Ionic", "Capacitor", "TypeScript"],
     color: "#04D9D9",
+    slug: "timetech", // NUEVO
+
   },
   {
     title: "BookMatch",
@@ -30,6 +34,8 @@ const projects = [
     image: "/images/bookmatch.png",
     technologies: ["Next.js", "React", "UI/UX", "TypeScript"],
     color: "#F29BC4",
+    slug: "bookmatch", // NUEVO
+
   },
 ];
 
@@ -128,7 +134,7 @@ export default function Portfolio() {
                 </span>
 
                 <a
-                  href="#"
+                    href={`/proyectos/${project.slug}`}
                   aria-label={`Ver proyecto ${project.title}`}
                   className="
                   absolute
