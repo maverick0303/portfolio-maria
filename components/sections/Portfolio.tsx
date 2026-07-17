@@ -26,17 +26,17 @@ const projects = [
     slug: "timetech", // NUEVO
 
   },
-  {
-    title: "BookMatch",
-    tag: "Web App",
-    description:
-      "Plataforma enfocada en recomendaciones literarias y descubrimiento de libros mediante una experiencia personalizada.",
-    image: "/images/bookmatch.png",
-    technologies: ["Next.js", "React", "UI/UX", "TypeScript"],
-    color: "#F29BC4",
-    slug: "bookmatch", // NUEVO
-
-  },
+  //{
+  //  title: "BookMatch",
+  //  tag: "Web App",
+  //  description:
+  //    "Plataforma enfocada en recomendaciones literarias y descubrimiento de libros mediante una experiencia personalizada.",
+  //  image: "/images/bookmatch.png",
+  //  technologies: ["Next.js", "React", "UI/UX", "TypeScript"],
+  //  color: "#F29BC4",
+  //  slug: "bookmatch", // NUEVO
+//
+  //},
 ];
 
 export default function Portfolio() {

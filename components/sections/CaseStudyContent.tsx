@@ -177,79 +177,83 @@ export default function CaseStudyContent({ data }: { data: CaseStudy }) {
 
       {/* Antes vs Después */}
       {(data.beforeImage || data.afterImage) && (
-        <section className="py-16 px-6 bg-[#F0F0F2]">
-          <div className="max-w-5xl mx-auto">
-            <h2
-              className="text-2xl font-bold text-[#401F34] mb-6"
-              style={{ fontFamily: "var(--font-space-grotesk)" }}
-            >
-              Antes vs Después
-            </h2>
+  <section className="py-16 px-6 bg-[#F0F0F2]">
+    <div className="max-w-5xl mx-auto">
+      <h2
+        className="text-2xl font-bold text-[#401F34] mb-6"
+        style={{ fontFamily: "var(--font-space-grotesk)" }}
+      >
+        Antes vs Después
+      </h2>
 
-            <div className="grid md:grid-cols-2 gap-6 items-start">
-              <div>
-                <span className="inline-block text-xs font-bold uppercase tracking-wider text-white bg-[#401F34]/60 rounded-full px-3 py-1 mb-3">
-                  Antes
-                </span>
-                <div className="rounded-2xl overflow-hidden border border-[#C9EBF2] bg-white aspect-video flex items-center justify-center">
-                  {data.beforeImage ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={data.beforeImage}
-                      alt="Antes"
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <span className="text-sm text-[#401F34]/40">
-                      Captura pendiente
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              <div>
-                <span
-                  className="inline-block text-xs font-bold uppercase tracking-wider text-white rounded-full px-3 py-1 mb-3"
-                  style={{ backgroundColor: data.color }}
-                >
-                  Después
-                </span>
-                <div className="rounded-2xl overflow-hidden border border-[#C9EBF2] bg-white aspect-video flex items-center justify-center">
-                  {data.afterImage ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={data.afterImage}
-                      alt="Después"
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <span className="text-sm text-[#401F34]/40">
-                      Captura pendiente
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8">
-              <h3 className="font-semibold text-[#401F34] mb-3">
-                Mejoras implementadas
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {data.improvements.map((imp) => (
-                  <span
-                    key={imp}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0F0F2] text-sm text-[#401F34]/80 border border-[#C9EBF2]"
-                  >
-                    <Check size={12} className="text-[#097C89]" />
-                    {imp}
-                  </span>
-                ))}
-              </div>
-            </div>
+      <div className="grid md:grid-cols-2 gap-6 items-start">
+        {/* LADO ANTES */}
+        <div>
+          <span className="inline-block text-xs font-bold uppercase tracking-wider text-white bg-[#401F34]/60 rounded-full px-3 py-1 mb-3">
+            Antes
+          </span>
+          {/* Recuperamos aspect-video para que la card sea pequeña y simétrica */}
+          <div className="rounded-2xl overflow-hidden border border-[#C9EBF2] bg-white aspect-video flex items-center justify-center p-2">
+            {data.beforeImage ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={data.beforeImage}
+                alt="Antes"
+                // object-contain hace que la foto mantenga su proporción original dentro de la card
+                className="w-full h-full object-contain"
+              />
+            ) : (
+              <span className="text-sm text-[#401F34]/40">
+                Captura pendiente
+              </span>
+            )}
           </div>
-        </section>
-      )}
+        </div>
+
+        {/* LADO DESPUÉS */}
+        <div>
+          <span
+            className="inline-block text-xs font-bold uppercase tracking-wider text-white rounded-full px-3 py-1 mb-3"
+            style={{ backgroundColor: data.color }}
+          >
+            Después
+          </span>
+          <div className="rounded-2xl overflow-hidden border border-[#C9EBF2] bg-white aspect-video flex items-center justify-center p-2">
+            {data.afterImage ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={data.afterImage}
+                alt="Después"
+                className="w-full h-full object-contain"
+              />
+            ) : (
+              <span className="text-sm text-[#401F34]/40">
+                Captura pendiente
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-8">
+        <h3 className="font-semibold text-[#401F34] mb-3">
+          Mejoras implementadas
+        </h3>
+        <div className="flex flex-wrap gap-2">
+          {data.improvements.map((imp) => (
+            <span
+              key={imp}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0F0F2] text-sm text-[#401F34]/80 border border-[#C9EBF2]"
+            >
+              <Check size={12} className="text-[#097C89]" />
+              {imp}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+)}
 
       {/* Reflexión */}
       <section className="py-16 px-6 bg-[#401F34]">

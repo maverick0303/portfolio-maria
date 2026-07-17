@@ -50,8 +50,8 @@ export const caseStudies: CaseStudy[] = [
             "Mejorar la experiencia en dispositivos móviles.",
             "Mantener la funcionalidad original sin alterar la lógica del sistema."
         ],
-        beforeImage: "/images/tiendita-antes.jpg", // TODO: agrega esta captura a /public/images
-        afterImage: "/images/Tiendita.jpg",
+        beforeImage: "/images/Tiendita.jpg", // TODO: agrega esta captura a /public/images
+        afterImage: "/images/Tiendita 2.0.png",
         improvements: [
             "Diseño visual más moderno y consistente.",
             "Mejor organización de la información.",
@@ -194,7 +194,7 @@ export const caseStudies: CaseStudy[] = [
 
         objectives: ["Modernizar la apariencia de la aplicación.", "Mejorar la experiencia de navegación.", "Optimizar el flujo de compra.", "Unificar el diseño de los componentes.", "Reforzar la jerarquía visual.", "Mantener todas las funcionalidades originales."],
         beforeImage: "/images/timetech.jpg",
-        afterImage: "",
+        afterImage: "/images/Timetech 2.0.png",
         improvements: ["Interfaz más moderna y atractiva.", "Navegación más intuitiva.", "Mejor organización del contenido.", "Componentes visuales consistentes.", "Flujo de compra más claro.", "Optimización de la experiencia móvil.", "Mejor jerarquía visual.",],
         reflection: "Este proyecto fortaleció mi experiencia en el desarrollo de aplicaciones móviles híbridas y me permitió comprender las diferencias entre diseñar para web y para dispositivos móviles. Al revisarlo nuevamente, identifiqué oportunidades para mejorar la navegación, la organización de la información y la experiencia de usuario. El rediseño refleja cómo ha evolucionado mi criterio para crear interfaces más limpias, consistentes y centradas en el usuario, sin perder de vista la funcionalidad del producto.",
         images: [
@@ -328,8 +328,8 @@ export const caseStudies: CaseStudy[] = [
         role: ["Next.js", "React", "UI/UX", "TypeScript"],
         problems: [{ title: "TODO", description: "TODO" }],
         objectives: ["TODO"],
-        beforeImage: "",
-        afterImage: "/images/bookmatch.png",
+        beforeImage: "/images/bookmatch.png",
+        afterImage: "",
         improvements: ["TODO"],
         reflection: "TODO",
         images: [
