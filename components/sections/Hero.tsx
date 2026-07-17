@@ -7,7 +7,7 @@ const techs = ["React", "Next.js", "Angular", "Ionic", "Django", "Figma"];
 
 const quickFacts = [
   { icon: GraduationCap, label: "Ingeniería Informática, Duoc UC" },
-  { icon: MapPin, label: "Basada en Chile" },
+  { icon: MapPin, label: "Independencia - Región Metropólitana" },
 ];
 
 export default function Hero() {

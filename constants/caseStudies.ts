@@ -14,12 +14,16 @@ export type CaseStudy = {
     improvements: string[]; // mejoras implementadas o por implementar
     reflection: string;
     images?: { src: string; caption: string }[];
+    figmaUrl?: string;
+    demoUrl?: string;
 
 };
 
 export const caseStudies: CaseStudy[] = [
     {
         slug: "tiendita-de-musica",
+        figmaUrl: "https://figma.com",
+        demoUrl: "https://ejemplo.com",
         title: "Tiendita de Música",
         tag: "E-commerce",
         color: "#F2529D",
@@ -171,6 +175,8 @@ export const caseStudies: CaseStudy[] = [
     //----------------------------------
     {
         slug: "timetech",
+        figmaUrl: "https://figma.com",
+        demoUrl: "https://ejemplo.com",
         title: "Aplicación móvil de ventas",
         tag: "App Móvil",
         color: "#04D9D9",
